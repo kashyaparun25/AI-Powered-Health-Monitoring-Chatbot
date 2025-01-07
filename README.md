@@ -59,6 +59,13 @@ The project features a robust data pipeline to fetch, process, and utilize healt
 
 ![Generated Insights Example](resources/generated_insights.png)
 
+  - GENERATING SUGGESTIONS
+    ![Generated Suggestion Example](resources/suggestion_example.png)
+    
+  - GENERATING DIET SUGGESTIONS
+    ![Generated Diet_Suggestion Example](resources/diet_suggestion_example.png)
+       
+ 
 ### Dynamic Visualizations
 - **Matplotlib and Seaborn**: Generate bar charts, line graphs, and other visualizations dynamically based on user queries.
 - **Examples**:
@@ -228,9 +235,6 @@ Example SQL query:
 SELECT * FROM cycle_data LIMIT 5;
 ```
 
-### Visualizations
-![Heart Rate Trends](visualizations/heart_rate_trends.png)
-![Recovery Scores](visualizations/recovery_scores.png)
 
 ---
 
