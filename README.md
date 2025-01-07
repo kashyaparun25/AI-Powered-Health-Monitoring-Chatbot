@@ -10,6 +10,8 @@ Key functionalities include:
 - Interactive chatbot interface to query, visualize, and analyze health metrics.
 - Automated data fetching from WHOOP APIs, processing, and storage into a PostgreSQL database.
 
+![Chatbot UI Example](path_to_image/chatbot_ui.png)
+
 ---
 
 ## Features
@@ -17,19 +19,22 @@ Key functionalities include:
 ### Data Fetching and Storage
 - **WHOOP API Integration**: Fetches user profile, sleep data, recovery metrics, workout details, and body measurements.
 - **PostgreSQL Storage**: Stores data into normalized database tables for efficient querying and analysis.
+- **Deployment**: Hosted on **Google Cloud Run** for scalability.
 
 ### AI-Powered Insights
 - **Claude AI Integration**: Processes health metrics and provides:
   - Summarized insights into user health trends.
   - Personalized suggestions for improvement.
 
+![Generated Insights Example](path_to_image/generated_insights.png)
+
 ### Dynamic Visualizations
 - **Matplotlib and Seaborn**: Generate bar charts, line graphs, and other visualizations dynamically based on user queries.
+- **Examples**:
+  - Line chart for heart rate trends over time.
+  - Bar chart comparing sleep efficiency.
 
-### Interactive Chatbot
-- **Streamlit UI**:
-  - Accepts user queries and returns insights or visualizations.
-  - Provides an interactive, easy-to-use chatbot experience.
+![Visualization Example](path_to_image/visualization_example.png)
 
 ---
 
