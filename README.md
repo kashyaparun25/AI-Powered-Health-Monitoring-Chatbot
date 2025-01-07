@@ -77,16 +77,32 @@ The project features a robust data pipeline to fetch, process, and utilize healt
 ---
 
 ## Project Structure
+
+### 1. WHOOP Data Fetch and Store System Script
+
 ```
-AI-Powered Health Monitoring Chatbot/
-├── chatbot_app.py                # Main Streamlit application script
-├── whoop_fetch_and_store.py      # WHOOP API data fetching script
-├── requirements.txt              # Required libraries and dependencies
+WHOOP Data Fetch and Store System Script/
+├── Logs/                                # Log files for debugging and tracking API requests
+├── Readme                               # Documentation for the data fetch system
+├── run_whoop_task.bat                   # Windows batch file for automating script execution
+├── whoop_fetch_and_store(local run).py  # Python script for fetching data locally
+├── whoop_fetch_and_store(for cloud deploy).py # Python script for cloud deployment
+
+```
+
+### 2. AI-Powered Health Monitoring Chatbot App
+
+```
+AI-Powered Health Monitoring Chatbot App/
 ├── assets/
-│   ├── chatbot_image.png         # Chatbot UI image
-│   ├── background.jpg            # Background image for the UI
-├── visualizations/               # Auto-generated visualizations
-├── Logs/                         # Log files for debugging
+│   ├── chatbot_image.png                # Image assets for the Streamlit UI
+│   ├── background.jpg                   # Background image for the chatbot app
+├── visualizations/                      # Auto-generated visualization files
+├── chatbot_app.py                       # Main Streamlit application script
+├── requirements.txt                     # Dependencies for both the chatbot and data fetching
+├── Logs/                                # Shared log files
+├── Readme                               # Main documentation file
+
 ```
 
 ---
