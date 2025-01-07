@@ -1,1 +1,241 @@
-# AI-Powered-Health-Monitoring-Chatbot
+# AI-Powered Health Monitoring Chatbot
+
+## Overview
+This project provides an **AI-Powered Health Monitoring Chatbot** built using **Streamlit**, **Anthropic Claude AI**, **PostgreSQL**, and **Python visualizations**. The chatbot allows users to analyze their health data collected from **WHOOP wearable devices**, visualize trends, and receive actionable insights and diet recommendations.
+
+Key functionalities include:
+
+- Dynamic generation of SQL queries to retrieve user-specific health data.
+- AI-powered insights and tailored recommendations.
+- Interactive chatbot interface to query, visualize, and analyze health metrics.
+- Automated data fetching from WHOOP APIs, processing, and storage into a PostgreSQL database.
+
+---
+
+## Features
+
+### Data Fetching and Storage
+- **WHOOP API Integration**: Fetches user profile, sleep data, recovery metrics, workout details, and body measurements.
+- **PostgreSQL Storage**: Stores data into normalized database tables for efficient querying and analysis.
+
+### AI-Powered Insights
+- **Claude AI Integration**: Processes health metrics and provides:
+  - Summarized insights into user health trends.
+  - Personalized suggestions for improvement.
+
+### Dynamic Visualizations
+- **Matplotlib and Seaborn**: Generate bar charts, line graphs, and other visualizations dynamically based on user queries.
+
+### Interactive Chatbot
+- **Streamlit UI**:
+  - Accepts user queries and returns insights or visualizations.
+  - Provides an interactive, easy-to-use chatbot experience.
+
+---
+
+## Project Structure
+```
+AI-Powered Health Monitoring Chatbot/
+├── chatbot_app.py                # Main Streamlit application script
+├── whoop_fetch_and_store.py      # WHOOP API data fetching script
+├── requirements.txt              # Required libraries and dependencies
+├── assets/
+│   ├── chatbot_image.png         # Chatbot UI image
+│   ├── background.jpg            # Background image for the UI
+├── visualizations/               # Auto-generated visualizations
+├── Logs/                         # Log files for debugging
+```
+
+---
+
+## Setup Instructions
+
+### Prerequisites
+1. **Python 3.8+** installed on your machine.
+2. **PostgreSQL** installed and configured.
+3. WHOOP API credentials (username and password).
+4. Claude AI API key from Anthropic.
+
+### 1. Install Python Libraries
+Run the following command to install all dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Set Up PostgreSQL Database
+Create the required database and tables:
+```sql
+CREATE TABLE users (
+    user_id VARCHAR PRIMARY KEY,
+    first_name VARCHAR,
+    last_name VARCHAR,
+    email VARCHAR
+);
+
+CREATE TABLE body_measurements (
+    user_id VARCHAR PRIMARY KEY,
+    height_meter FLOAT,
+    weight_kilogram FLOAT,
+    max_heart_rate INT
+);
+
+CREATE TABLE cycle_data (
+    cycle_id VARCHAR PRIMARY KEY,
+    user_id VARCHAR,
+    strain FLOAT,
+    kilojoule FLOAT,
+    average_heart_rate INT,
+    max_heart_rate INT,
+    created_at TIMESTAMP
+);
+
+CREATE TABLE recovery_data (
+    cycle_id VARCHAR PRIMARY KEY,
+    user_id VARCHAR,
+    recovery_score FLOAT,
+    resting_heart_rate FLOAT,
+    hrv_rmssd_milli FLOAT,
+    created_at TIMESTAMP
+);
+
+CREATE TABLE sleep_data (
+    user_id VARCHAR,
+    total_sleep_time INT,
+    rem_sleep_time INT,
+    deep_sleep_time INT,
+    efficiency FLOAT,
+    timestamp TIMESTAMP,
+    nap BOOLEAN,
+    respiratory_rate FLOAT
+);
+
+CREATE TABLE workout_data (
+    workout_id VARCHAR PRIMARY KEY,
+    user_id VARCHAR,
+    start TIMESTAMP,
+    strain FLOAT,
+    kilojoule FLOAT,
+    average_heart_rate FLOAT,
+    max_heart_rate FLOAT,
+    distance_meter FLOAT,
+    created_at TIMESTAMP
+);
+```
+Update `db_config` in the Python scripts with your PostgreSQL credentials:
+```python
+DB_CONFIG = {
+    "database": "health_monitor_whoop",
+    "user": "your_username",
+    "password": "your_password",
+    "host": "your_host",
+    "port": "5432"
+}
+```
+
+### 3. Configure WHOOP API and Claude AI
+Replace placeholders in `whoop_fetch_and_store.py` and `chatbot_app.py` with your credentials:
+```python
+USERNAME = "your_email@example.com"
+PASSWORD = "your_password"
+API_KEY = "your_anthropic_api_key"
+```
+
+---
+
+## How to Run
+
+### 1. Fetch and Store WHOOP Data
+Run the `whoop_fetch_and_store.py` script to fetch data and store it in the PostgreSQL database:
+```bash
+python whoop_fetch_and_store.py
+```
+
+### 2. Start the Chatbot
+Run the Streamlit application:
+```bash
+streamlit run chatbot_app.py
+```
+Open the provided URL (e.g., `http://localhost:8501`) in your web browser to interact with the chatbot.
+
+---
+
+## Example Queries
+
+### Health Insights
+- "What was my average heart rate on the 5 most active days?"
+- "Did I get enough sleep this week?"
+- "How did my deep sleep change during my 5 most active days?"
+
+### Recommendations
+- "What diet suggestions can you give me for my health trends?"
+- "How can I improve my recovery scores?"
+
+### Visualizations
+- "Show me a bar chart of my recovery scores over the past month."
+- "Visualize my heart rate trends."
+
+---
+
+## Example Outputs
+### Logs
+```
+[INFO] Authenticating with WHOOP API...
+[INFO] Authenticated successfully! User ID: 12345678
+[INFO] Fetching sleep data...
+[INFO] Storing sleep data...
+[INFO] WHOOP data fetch and store process completed successfully!
+```
+
+### Database Verification
+Example SQL query:
+```sql
+SELECT * FROM cycle_data LIMIT 5;
+```
+
+### Visualizations
+![Heart Rate Trends](visualizations/heart_rate_trends.png)
+![Recovery Scores](visualizations/recovery_scores.png)
+
+---
+
+## Troubleshooting
+
+### Common Issues
+1. **Database Connection Error**:
+   - Verify PostgreSQL credentials and ensure the database is running.
+
+2. **API Authentication Failure**:
+   - Check your WHOOP or Claude AI credentials.
+
+3. **Visualization Errors**:
+   - Ensure data columns are correctly formatted.
+
+4. **Missing Libraries**:
+   - Install dependencies using:
+     ```bash
+     pip install -r requirements.txt
+     ```
+
+---
+
+## Team Members
+
+- **Arun Kashyap**
+  - CWID: 20022803  
+  - M.S. Data Science  
+  - Stevens Institute of Technology
+
+- **Niranjan Reddy Sadula**
+  - CWID: 20025413  
+  - M.S. Machine Learning  
+  - Stevens Institute of Technology
+
+- **Sai Harshith Reddy Bondugula**
+  - CWID: 20027869  
+  - M.S. BIA  
+  - Stevens Institute of Technology
+
+---
+
+## License
+This project is licensed under the MIT License.
