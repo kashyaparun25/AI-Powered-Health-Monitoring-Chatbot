@@ -10,7 +10,7 @@ Key functionalities include:
 - Interactive chatbot interface to query, visualize, and analyze health metrics.
 - Automated data fetching from WHOOP APIs, processing, and storage into a PostgreSQL database.
 
-![Chatbot UI Example](path_to_image/chatbot_ui.png)
+![Chatbot UI Example](resources/chatbot_ui.jpg)
 
 ---
 
@@ -19,7 +19,7 @@ Key functionalities include:
 ### System Flow
 The system follows a structured flow from data input to insights generation and visualization. Below is the complete flowchart of the system:
 
-![System Flow Diagram](path_to_image/system_flow.png)
+![System Flow Diagram](resources/system_flow.png)
 
 1. **User Input**:
    - Users interact with the chatbot through a Streamlit interface, entering queries or requesting visualizations.
@@ -45,7 +45,7 @@ The project features a robust data pipeline to fetch, process, and utilize healt
 4. **Insights Generation**: AI-powered analysis using Claude AI to provide actionable recommendations.
 5. **Visualization**: Generates dynamic plots and charts based on user queries.
 
-![Data Pipeline Workflow](path_to_image/data_pipeline_workflow.png)
+![Data Pipeline Workflow](resources/data_pipeline_workflow.png)
 
 ### Data Fetching and Storage
 - **WHOOP API Integration**: Fetches user profile, sleep data, recovery metrics, workout details, and body measurements.
@@ -57,7 +57,7 @@ The project features a robust data pipeline to fetch, process, and utilize healt
   - Summarized insights into user health trends.
   - Personalized suggestions for improvement.
 
-![Generated Insights Example](path_to_image/generated_insights.png)
+![Generated Insights Example](resources/generated_insights.png)
 
 ### Dynamic Visualizations
 - **Matplotlib and Seaborn**: Generate bar charts, line graphs, and other visualizations dynamically based on user queries.
@@ -65,7 +65,7 @@ The project features a robust data pipeline to fetch, process, and utilize healt
   - Line chart for heart rate trends over time.
   - Bar chart comparing sleep efficiency.
 
-![Visualization Example](path_to_image/visualization_example.png)
+![Visualization Example](resources/visualization_example.png)
 
 ---
 
