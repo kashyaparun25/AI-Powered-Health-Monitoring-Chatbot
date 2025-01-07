@@ -16,6 +16,37 @@ Key functionalities include:
 
 ## Features
 
+### System Flow
+The system follows a structured flow from data input to insights generation and visualization. Below is the complete flowchart of the system:
+
+![System Flow Diagram](path_to_image/system_flow.png)
+
+1. **User Input**:
+   - Users interact with the chatbot through a Streamlit interface, entering queries or requesting visualizations.
+2. **Backend Processing**:
+   - Input prompts are processed to generate dynamic SQL queries for the PostgreSQL database.
+   - Data retrieval and pre-processing occur based on the queries.
+3. **Options Based on User Needs**:
+   - **Option 1**: Generate actionable insights through Claude AI.
+   - **Option 2**: Generate dynamic visualizations like bar charts or line graphs.
+   - **Option 3**: Provide personalized diet and fitness suggestions.
+4. **Output Generation**:
+   - Results are displayed interactively on the Streamlit UI, with logs maintained for backend operations.
+
+### Data Pipeline and Workflows
+
+The project features a robust data pipeline to fetch, process, and utilize health data:
+
+1. **Data Fetching**: Connects to the WHOOP API to retrieve user data, including sleep metrics, recovery scores, and workout details.
+2. **Data Processing**:
+   - Processes raw JSON responses from the WHOOP API.
+   - Performs data validation and transformation for database storage.
+3. **Data Storage**: Normalized tables in PostgreSQL for efficient querying and visualizations.
+4. **Insights Generation**: AI-powered analysis using Claude AI to provide actionable recommendations.
+5. **Visualization**: Generates dynamic plots and charts based on user queries.
+
+![Data Pipeline Workflow](path_to_image/data_pipeline_workflow.png)
+
 ### Data Fetching and Storage
 - **WHOOP API Integration**: Fetches user profile, sleep data, recovery metrics, workout details, and body measurements.
 - **PostgreSQL Storage**: Stores data into normalized database tables for efficient querying and analysis.
@@ -221,26 +252,7 @@ SELECT * FROM cycle_data LIMIT 5;
      pip install -r requirements.txt
      ```
 
----
 
-## Team Members
-
-- **Arun Kashyap**
-  - CWID: 20022803  
-  - M.S. Data Science  
-  - Stevens Institute of Technology
-
-- **Niranjan Reddy Sadula**
-  - CWID: 20025413  
-  - M.S. Machine Learning  
-  - Stevens Institute of Technology
-
-- **Sai Harshith Reddy Bondugula**
-  - CWID: 20027869  
-  - M.S. BIA  
-  - Stevens Institute of Technology
-
----
 
 ## License
 This project is licensed under the MIT License.
